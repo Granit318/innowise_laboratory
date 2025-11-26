@@ -1,0 +1,60 @@
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.4.10
+    hooks:
+      - id: ruff
+        args: [ --fix ]
+
+  - repo: https://github.com/facebook/usort
+    rev: v1.0.8
+    hooks:
+      - id: usort
+
+  - repo: https://github.com/psf/black
+    rev: 25.1.0
+    hooks:
+      - id: black
+        language_version: python # Should be a command that runs python3.6+
+        args: [--target-version=py312]
+
+#  - repo: https://github.com/hakancelikdev/unimport.git
+#    rev: 1.2.1
+#    hooks:
+#      - id: unimport
+#        entry: bash -c 'export LIBCST_PARSER_TYPE=native && unimport --exclude=__init__.py --remove --gitignore'
+
+  - repo: local
+    hooks:
+      - id: pylint
+        name: pylint
+        entry: pylint
+        language: system
+        types: [python]
+        args: [--disable=all, --enable=undefined-variable, --load-plugins pylint_pydantic, eval-used]
+
+
+  - repo: https://github.com/asottile/pyupgrade
+    rev: "v3.19.1"
+    hooks:
+      - id: pyupgrade
+        args: [ --py312-plus ]
+
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: "v5.0.0"
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: debug-statements
+      - id: name-tests-test
+      - id: check-ast
+
+  - repo: https://github.com/bg-open-source/pre-commit-localization-hooks.git
+    rev: v1.0.0
+    hooks:
+    - id: missing-error-messages
+      name: missing-error-messages-hook
+      entry: missing-error-messages-hook
+      language: python
+      types: [python]
+      args: ['--po_dir', 'locale/', '--errors_patterns', '*.py', '--repo_directory', 'core/translations']

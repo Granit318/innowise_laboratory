@@ -43,7 +43,7 @@ def get_hobbies():
 
 
 def main():
-    user_profile = User(name=str(input("Enter your full name: ")), birth_year=str(input("Enter your birth year: ")),
+    user_profile = User(name=str(input("-profile Enter your full name: ")), birth_year=str(input("Enter your birth year: ")),
                         hobbies=(get_hobbies()))
     generate_profile(age=user_profile.age)
     print(
