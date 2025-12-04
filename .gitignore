@@ -209,3 +209,5 @@ __marimo__/
 #IDE
 .vscode/
 .idea/
+
+.python-version
