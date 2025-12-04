@@ -209,10 +209,3 @@ __marimo__/
 #IDE
 .vscode/
 .idea/
-
-# Базы данных
-*.db
-*.sqlite
-*.sqlite3
-*.db-journal
-*.sqlite-journal

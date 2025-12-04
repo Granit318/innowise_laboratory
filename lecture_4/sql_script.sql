@@ -1,9 +1,5 @@
--- Drop existing tables if they exist
-DROP TABLE IF EXISTS students;
-DROP TABLE IF EXISTS grades;
-
 -- Create students table
-CREATE TABLE students
+CREATE TABLE IF NOT EXISTS students
 (
     id         INTEGER PRIMARY KEY AUTOINCREMENT,
     full_name  TEXT NOT NULL,
@@ -23,14 +19,14 @@ VALUES ('Alice Johnson', 2005),
        ('Isabella Martinez', 2006);
 
 -- Create grades table with foreign key constraint
-CREATE TABLE grades
+CREATE TABLE IF NOT EXISTS grades
 (
     id         INTEGER PRIMARY KEY AUTOINCREMENT,
     student_id INTEGER,
     subject    TEXT NOT NULL,
     grade      INTEGER CHECK (grade >= 1 AND grade <= 100),
     FOREIGN KEY (student_id) REFERENCES students (id) ON DELETE CASCADE
-);
+    );
 
 -- Insert sample grade data
 INSERT INTO grades (student_id, subject, grade)
