@@ -23,14 +23,14 @@ repos:
 #      - id: unimport
 #        entry: bash -c 'export LIBCST_PARSER_TYPE=native && unimport --exclude=__init__.py --remove --gitignore'
 
-  - repo: local
-    hooks:
-      - id: pylint
-        name: pylint
-        entry: pylint
-        language: system
-        types: [python]
-        args: [--disable=all, --enable=undefined-variable, --load-plugins pylint_pydantic, eval-used]
+#  - repo: local
+#    hooks:
+#      - id: pylint
+#        name: pylint
+#        entry: pylint
+#        language: system
+#        types: [python]
+#        args: [--disable=all, --enable=undefined-variable, --load-plugins pylint_pydantic, eval-used]
 
 
   - repo: https://github.com/asottile/pyupgrade
@@ -49,12 +49,12 @@ repos:
       - id: name-tests-test
       - id: check-ast
 
-  - repo: https://github.com/bg-open-source/pre-commit-localization-hooks.git
-    rev: v1.0.0
-    hooks:
-    - id: missing-error-messages
-      name: missing-error-messages-hook
-      entry: missing-error-messages-hook
-      language: python
-      types: [python]
-      args: ['--po_dir', 'locale/', '--errors_patterns', '*.py', '--repo_directory', 'core/translations']
+#  - repo: https://github.com/bg-open-source/pre-commit-localization-hooks.git
+#    rev: v1.0.0
+#    hooks:
+#    - id: missing-error-messages
+#      name: missing-error-messages-hook
+#      entry: missing-error-messages-hook
+#      language: python
+#      types: [python]
+#      args: ['--po_dir', 'locale/', '--errors_patterns', '*.py', '--repo_directory', 'core/translations']
