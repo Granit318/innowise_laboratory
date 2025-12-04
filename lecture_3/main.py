@@ -81,8 +81,7 @@ def add_new_student(name: str) -> None:
         print("Student already exists")
         return None
 
-    student = {"name": name,
-               "grades": []}
+    student = {"name": name, "grades": []}
     students.append(student)
 
 
@@ -164,7 +163,9 @@ def find_top_performer() -> None:
     # Use max() with lambda function as key to find top performer
     top_student = max(valid_students, key=lambda x: x[1])
 
-    print(f"Top performer: {top_student[0]} with an average grade of {top_student[1]:.2f}")
+    print(
+        f"Top performer: {top_student[0]} with an average grade of {top_student[1]:.2f}"
+    )
 
 
 def main():
@@ -173,31 +174,33 @@ def main():
 
     Menu Options:
         1. Add new student
-        2. Add grades for student  
+        2. Add grades for student
         3. Generate full report
         4. Find top performer
         5. Exit program
     """
     while True:
-        print("""\n--- Student Grade Analyzer ---
+        print(
+            """\n--- Student Grade Analyzer ---
         1. Add a new student
         2. Add grades for a student
         3. Generate a full report
         4. Find the top student
-        5. Exit program""")
+        5. Exit program"""
+        )
         choice: str = user_input("Enter your choice: ")
         match choice:
-            case '1':
+            case "1":
                 student_name = user_input("Enter student name: ")
                 add_new_student(student_name)
-            case '2':
+            case "2":
                 student_name = user_input("Enter student name: ")
                 if not is_student_exists(student_name):
                     print("Student does not exist")
                     continue
                 grades = input_grades()
                 add_grades(student_name, grades)
-            case '3':
+            case "3":
                 show_report()
             case "4":
                 find_top_performer()
